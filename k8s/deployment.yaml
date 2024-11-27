@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-sorteo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-sorteo
+  template:
+    metadata:
+      labels:
+        app: api-sorteo
+    spec:
+      containers:
+      - name: api-sorteo
+        image: sebastianbaeze/ecocycle-sorteo:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          # requests:
+          #   cpu: "100m"
+          #   memory: "64Mi"
+          limits:
+            cpu: "30m"
+            memory: "90Mi"
