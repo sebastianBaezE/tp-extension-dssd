@@ -5,7 +5,7 @@ import time
 KUBERNETES_SERVICE_URL = "http://api-sorteo.local/generate-token"  # Replace with your Kubernetes service URL
 POINT_ID = "12345"  # Example point ID for testing
 NUMBER_OF_REQUESTS = 10000000000000000 # Number of test requests to send
-DELAY_BETWEEN_REQUESTS = 2  # Delay between requests in seconds
+DELAY_BETWEEN_REQUESTS = 0.5  # Delay between requests in seconds
 
 
 def test_generate_token():
@@ -32,7 +32,7 @@ def test_generate_token():
             print(f"Request {i}: Error occurred - {str(e)}")
         
         # Wait between requests
-        # time.sleep(DELAY_BETWEEN_REQUESTS)
+        time.sleep(DELAY_BETWEEN_REQUESTS)
 
 
 if __name__ == "__main__":
